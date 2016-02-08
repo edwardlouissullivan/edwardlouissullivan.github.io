@@ -1,0 +1,41 @@
+
+          <div>
+          <div id="blog" class="blog-post">
+            <h2 class="blog-post-title">Parsing Date/Time Formats in Python Quickly</h2>
+            <p class="blog-post-meta">February 8, 2016 by <a href="#">Edward</a></p>
+
+            <p>For a recent coding project, I needed to compare dates and times that were in several different formats, such as:</p>
+
+            <ul>
+              <li>"2015-03-31T21:59:12.967-04:00"</li>
+              <li>"Sun Apr 6 00:51:06 2014 +0100"</li>
+
+            </ul>
+            <p>My strategy was to convert all the input formats into a common uniform format, such as the Unix timestamp, to enable easy comparisons. However, writing the conversion code for each format was tedious. I initially used the following code:</p>
+<pre>
+     import datetime
+     import time
+     month = git_time_string.split()[1]
+     day = git_time_string.split()[2]
+     year = git_time_string.split()[-2]
+     hour = git_time_string.split()[3].split(':')[0]
+     min = git_time_string.split()[3].split(':')[1]
+     sec = git_time_string.split()[3].split(':')[2]
+     date_time_string = "%s %s %s %s %s %s" % (month, day, year, hour, min, sec)
+     date_time = datetime.datetime.strptime(date_time_string, '%b %d %Y %H %M %S')
+     unix_time = time.mktime(date_time.timetuple())
+</pre>
+              <p>Fortunately, a friend pointed out that all the time formats in my input were standard common formats and that, as a result, they would all be easily handled by the Python datautil library, as shown below:</p>
+<pre>
+import dateutil.parser
+#import dateutil.tz
+import time
+def convert_string_to_unix_timestamp(time_string):
+    datetime = parse(time_string)
+    unix_timestamp = time.mktime(datetime.timetuple())
+    return unix_timestamp
+</pre>
+
+
+          </div><!-- /.blog-post -->
+          </div>
