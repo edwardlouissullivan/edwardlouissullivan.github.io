@@ -15,15 +15,15 @@
 <pre>
      import datetime
      import time
-     month = git_time_string.split()[1]
+     mon = git_time_string.split()[1]
      day = git_time_string.split()[2]
      year = git_time_string.split()[-2]
-     hour = git_time_string.split()[3].split(':')[0]
+     hr = git_time_string.split()[3].split(':')[0]
      min = git_time_string.split()[3].split(':')[1]
      sec = git_time_string.split()[3].split(':')[2]
-     date_time_string = "%s %s %s %s %s %s" % (month, day, year, hour, min, sec)
-     date_time = datetime.datetime.strptime(date_time_string, '%b %d %Y %H %M %S')
-     unix_time = time.mktime(date_time.timetuple())
+     dt_string = "%s %s %s %s %s %s" % (mon,day,year,hr,min,sec)
+     dt = datetime.datetime.strptime(dt_string, '%b %d %Y %H %M %S')
+     unix_time = time.mktime(dt.timetuple())
 </pre>
               <p>Fortunately, a friend pointed out that all the time formats in my input were standard common formats and that, as a result, they would all be easily handled by the Python datautil library, as shown below:</p>
 <pre>
