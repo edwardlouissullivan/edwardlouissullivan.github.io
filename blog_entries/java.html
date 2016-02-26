@@ -1,0 +1,59 @@
+
+          <div>
+          <div id="blog" class="blog-post">
+            <h2 class="blog-post-title">Java</h2>
+            <p class="blog-post-meta">February 23, 2016 by <a href="#">Edward</a></p>
+
+            <p>Original motivation for Java was not the Internet, but rather need for platform-independent language for embedded systems with a variety of CPUs/controllers. 
+
+                Initially called "Oak," but later renamed to "Java."
+
+                Created by 5 guys in 1991 at Sun Microsystems.
+
+                The Internet increased the importance of code portability.
+
+                Syntax inspired by C and OOP features inspired by C++.
+
+                Java is not "C++ adapted for the Internet" ... It has several fundamental underlying differences and themes from C++. Java was not intended to replace C++. It addresses a totally different scenario than C++.
+
+                C# was designed by Microsoft for the .NET framework and it is very similar to Java in that they both have C++ based syntax, allow distributed programming, follow an object-based paradigm. However, C# and Java are optimized for different scenarios.
+
+                Applet = "Special kind of Java program that is design to be transmitted over the Internet and automatically executed by a Java-compatible Web browser." "Downloaded on demand" like JS today.
+
+                Java and Security _
+
+</p>
+
+            <ul>
+              <li>"2015-03-31T21:59:12.967-04:00"</li>
+              <li>"Sun Apr 6 00:51:06 2014 +0100"</li>
+
+            </ul>
+            <p>My strategy was to convert all the input formats into a common uniform format, such as the Unix timestamp, to enable easy comparisons. However, writing the conversion code for each format was tedious. I initially used the following code:</p>
+<pre>
+     import datetime
+     import time
+     mon = git_time_string.split()[1]
+     day = git_time_string.split()[2]
+     year = git_time_string.split()[-2]
+     hr = git_time_string.split()[3].split(':')[0]
+     min = git_time_string.split()[3].split(':')[1]
+     sec = git_time_string.split()[3].split(':')[2]
+     dt_string = "%s %s %s %s %s %s" % (mon,day,year,hr,min,sec)
+     dt = datetime.datetime.strptime(dt_string, '%b %d %Y %H %M %S')
+     unix_time = time.mktime(dt.timetuple())
+</pre>
+              <p>Fortunately, a friend pointed out that all the time formats in my input were standard common formats and that, as a result, they would all be easily handled by the Python datautil library, as shown below:</p>
+<pre>
+import dateutil.parser
+#import dateutil.tz
+import time
+def convert_string_to_unix_timestamp(time_string):
+    datetime = parse(time_string)
+    unix_timestamp = time.mktime(datetime.timetuple())
+    return unix_timestamp
+</pre>
+
+
+          </div><!-- /.blog-post -->
+          </div>
